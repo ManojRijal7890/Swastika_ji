@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Are You Ready? 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #ffd6dc, #ffeef2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Outfit', sans-serif;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-family: 'meme', cursive;
+      font-size: 3rem;
+      color: #d14d72;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+
+    button {
+      margin-top: 40px;
+      font-size: 1.5rem;
+      padding: 15px 35px;
+      background-color: #d14d72;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(209, 77, 114, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c13a64;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Are You Ready for the Surprise? 💌</h1>
+  <button onclick="goToMain()">Yes, Show Me!</button>
+
+<script>
+  function goToMain() {
+    // Set a flag so main.html knows autoplay is allowed
+    sessionStorage.setItem('playMusic', 'true');
+    window.location.href = 'main.html';
+  }
+</script>
+</body>
+</html>

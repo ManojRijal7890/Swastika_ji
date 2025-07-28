@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Her 💙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Meme+Handwritten&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Music Controls -->
+<button id="music-btn" aria-label="Toggle music">⏸ Music</button>
+<audio id="bg-music" loop>
+  <source src="assets/music/saiyaraa.mp3" type="audio/mp3" />
+  Your browser does not support the audio element.
+</audio>
+
+
+  <!-- Header -->
+  <header class="hero" role="banner">
+    <h1>For The Girl Who I Admired The Most In My Life</h1>
+    <h2 class="special-name">Swastika Jiiiii</h2><br>
+    <p class="quote">
+      <span class="main-heading">Welcome to the World of You</span>
+      Every photo, every video, every song — all of it is just for you.
+      I made this space to hold every memory, every smile, every moment you shared or I wished we had.
+      From the posts you liked to the songs that remind me of you, I’ve kept it all — because you mean that much.<br>
+      <strong> This isn’t just a website. It’s a digital diary of you.</strong> 
+    </p>
+  </header>
+  
+  <!-- Slideshow Section -->
+  <section class="slideshow" aria-label="Slideshow of memories">
+    <h2>💙 Your Memories</h2>
+    <div class="slideshow-container" aria-live="polite" aria-atomic="true"></div>
+  </section>
+
+  <!-- Photo Grid Section -->
+  
+
+  <!-- Photo Folder Section -->
+  <section class="photos-folder">
+    <h2>📷 Photo Album</h2>
+    <button id="toggle-photos">View Photos</button>
+    <div class="photo-grid" id="photo-grid" style="display: none;"></div>
+  </section>
+
+  <!-- Videos Folder Section -->
+  <section class="videos-folder">
+    <h2>📁 Videos Folder</h2>
+    <button id="toggle-videos">View Videos</button>
+    <div class="video-grid" id="video-grid" style="display: none;"></div>
+  </section>
+
+  <!-- 100 Reasons Link -->
+  <section class="notes-link" aria-label="100 Reasons Why I Like You">
+    <h2>💖 100 Reasons Why I Like You</h2>
+    <p>I wrote every one of these with you in my heart.</p>
+    <a href="100-reasons.html" target="_blank" rel="noopener" class="btn-notes">See 100 Reasons Why I Like You</a>
+  </section>
+
+  <!-- Instagram Folders -->
+  <section class="memory-screenshot" aria-label="Saved Instagram Folders">
+    <h2>📂 Your Likes, My Keepsakes</h2>
+    <img src="assets/special/saved-folders.jpg" alt="Saved Instagram folders screenshot" />
+    <p>I made these folders to keep little pieces of You — the posts You liked, the ones I saved just for you, and every photo that holds a memory of You. With over 375+ posts you liked, 300+ saved for you , and alll your insta posts on herr. “Liked by Her” is where I see your joy. “Saved for Her” is filled with moments I wanted to share with you. And “Herr” holds every glimpse of you that I never wanted to lose. 💙</p>
+  </section>
+
+  <!-- Spotify Playlist -->
+  <section class="playlist" aria-label="Spotify Playlist">
+    <h2>🎵 Your Favorite Songs</h2>
+    <p>I love how you share your favorite songs in the videos or photos you upload—it’s like getting into the world of your music . I put all those songs together and created a playlist and named <strong>" Her fav songs "</strong> so I can always remember the moments that matter to you. Every song makes me think of you and how special you are. </p>
+    <iframe
+      src="https://open.spotify.com/embed/playlist/7xa8SpwR6ygWpyLvdyOZei?utm_source=generator"
+      width="100%"
+      height="580"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      title="Spotify playlist"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <!-- Secret Message -->
+  <section class="message" aria-label="Secret Message">
+    <h2>💌 A Secret Message</h2>
+    <button class="reveal-btn" aria-expanded="false" aria-controls="secret-message" id="reveal-btn">Reveal My Heart</button>
+    <p id="secret-message" style="display: none;">
+      <strong>
+        I think I started liking you, should I say Like or I’m falling in loveeeee.  And it feels both exciting and confusing at theee same timeeee. Every time we talk or spend time together I feel a little nervous and happyyyyyy at the same moment It's a feeling that I’ve ben trying to understand and  I can’t deny the fact that I really like you. But at the same time I’m not sure if it’s the right timeee or if you feel the same way about me. That uncertainty makes it harder to share how I feelll. The connection we have is really important to meeee and I don't wanna risk the bond we got. If I told you how I feel I’m sacred that it might change the things between us sometimessss it easier to keep these feeling  it to myself rather than takie the chances of things becoming awkward. If someday this thing came up for sure I’m gonna tell youuuuu. But at the same time hiding it doesn’t feel great either. The truth is I don’t know what will happen if I tell you. Part of me wants to be honest but another part is afraid of the outcomeeeee. It’s hard to know if I should take that step or it’s better to wait and see what happens. I don’t want to lose the bond we shareeee because it means alotttttt to meeeeee So for now I will keep alll my feelings to myselffff and enjoy the time we have together. Maybe one day I’ll find the right time to tell you or maybe things will unfold naturally . I hope by that time it won’t be that lateee 
+      
+      </strong>
+    </p>
+  </section>
+
+  <!-- Closing Message -->
+  <section class="closing-message">
+    <p>
+      <strong>
+        I don't know what the future holds That's why I created this space to keep every moment of you alive — through photos, videos, songs, memories, and feelings.  
+        
+    </p>
+  </section>
+  <footer style="text-align: center; padding: 20px; font-size: 25px; color: #888;">
+    © 2025 This entire site was made with love by Manoj Rijal.
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
