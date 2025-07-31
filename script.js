@@ -69,7 +69,7 @@ if (toggleVideosBtn && videoGrid) {
   });
 
   // Load videos dynamically
-  for (let i = 1; i <= 26; i++) {
+  for (let i = 1; i <= 31; i++) {
     const video = document.createElement('video');
     video.src = `assets/videos/${i}.mp4`;
     video.controls = true;
