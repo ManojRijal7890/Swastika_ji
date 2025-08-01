@@ -92,7 +92,7 @@ if (togglePhotosBtn && photoGrid) {
     togglePhotosBtn.textContent = isHidden ? 'Hide Photos' : 'View Photos';
 
     if (!photosLoaded) {
-      for (let i = 1; i <= 90; i++) {
+      for (let i = 1; i <= 91; i++) {
         const img = document.createElement('img');
         img.src = `assets/photos/${i}.JPG`;
         img.alt = `Photo ${i}`;
