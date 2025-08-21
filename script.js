@@ -69,7 +69,7 @@ if (toggleVideosBtn && videoGrid) {
   });
 
   // Load videos dynamically
-  for (let i = 1; i <= 31; i++) {
+  for (let i = 1; i <= 32; i++) {
     const video = document.createElement('video');
     video.src = `assets/videos/${i}.mp4`;
     video.controls = true;
@@ -92,7 +92,7 @@ if (togglePhotosBtn && photoGrid) {
     togglePhotosBtn.textContent = isHidden ? 'Hide Photos' : 'View Photos';
 
     if (!photosLoaded) {
-      for (let i = 1; i <= 91; i++) {
+      for (let i = 1; i <= 93; i++) {
         const img = document.createElement('img');
         img.src = `assets/photos/${i}.JPG`;
         img.alt = `Photo ${i}`;
