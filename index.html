@@ -1,73 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Are You Ready? 💖</title>
+  <meta charset="utf-8" />
+  <title>Welcome to the world of Swastika 💌</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: linear-gradient(to right, #ffd6dc, #ffeef2);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Outfit', sans-serif;
-      animation: fadeIn 2s ease;
+    :root{
+      /* Tweak these to change the small video size & spacing */
+      --vid-size: 260px;   /* previous small look (try 240px/300px if you want) */
+      --vid-gap: 16px;
+
+      --glass:#ffffffcc; --text:#1c1c1c; --muted:#6f6f76;
+      --accent:#d94e7e; --accent-2:#9b64f0; --ring:#ff9fbd;
+      --shadow:0 22px 60px rgba(217,78,126,.25);
     }
 
-    h1 {
-      font-family: 'meme', cursive;
-      font-size: 3rem;
-      color: #d14d72;
-      text-align: center;
-      animation: pulse 2s infinite;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      overflow:auto;  /* allow page to scroll so all text is visible */
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:#0e0e10;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
-    button {
-      margin-top: 40px;
-      font-size: 1.5rem;
-      padding: 15px 35px;
-      background-color: #d14d72;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(209, 77, 114, 0.5);
-      transition: all 0.3s ease;
+    /* Romantic animated background */
+    .bg-anim{
+      position:fixed; inset:0; z-index:-3;
+      background:
+        radial-gradient(1200px 700px at 12% 18%, #ffe8f2, transparent 60%),
+        radial-gradient(900px 600px at 85% 12%, #f3eaff, transparent 60%),
+        radial-gradient(1000px 900px at 48% 85%, #ffeff7, transparent 60%),
+        linear-gradient(180deg, #fff, #ffe9f2 55%, #fff);
+      animation:hue 16s ease-in-out infinite alternate;
+      filter:saturate(106%);
+    }
+    @keyframes hue{from{filter:hue-rotate(0)} to{filter:hue-rotate(8deg)}}
+
+    /* Floating hearts */
+    canvas#hearts{
+      position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.55;
     }
 
-    button:hover {
-      background-color: #c13a64;
-      transform: scale(1.05);
+    /* Center stage */
+    .stage{
+      min-height:100dvh; display:flex; align-items:center; justify-content:center;
+      padding: 24px 20px 40px;
+    }
+    .card{
+      width:min(860px, 100%);
+      background:var(--glass);
+      backdrop-filter: blur(12px);
+      border:1px solid #ffffff70; border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:clamp(22px,5vw,48px);
+      text-align:center;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    h1{
+      font-family:'Playfair Display',serif; font-weight:700;
+      font-size:clamp(2rem,5vw,3rem); margin:0 0 8px;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .subtitle{margin:0 0 18px; color:var(--muted); font-size:1.08rem}
+
+    /* Two small videos side-by-side (exact small size like before) */
+    .intro-videos{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: var(--vid-gap);
+      margin: 0 auto 18px;
+      flex-wrap: wrap; /* stacks on narrow phones */
+    }
+    .intro-videos video{
+      width: var(--vid-size);
+      height: calc(var(--vid-size) * 4 / 3); /* portrait-ish 3:4 */
+      max-width: 42vw;            /* keep sensible on small screens */
+      border-radius:16px;
+      box-shadow:0 14px 40px rgba(0,0,0,.25);
+      object-fit: cover;
+      object-position: center 20%; /* nudge to keep eyes nicely framed */
+      display:block;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
+    .rotator{
+      font-family:'Playfair Display',serif;
+      font-size:1.22rem; color:#7a5668; min-height:2.4em; margin:12px 0 20px;
+      opacity:0; transform:translateY(6px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    .rotator.is-visible{opacity:1; transform:translateY(0)}
+
+    .buttons{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .btn{
+      border:0; cursor:pointer; user-select:none;
+      padding:12px 20px; border-radius:14px; font-weight:700;
+      transition:transform .15s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    .btn-primary{background:var(--accent); color:#fff; box-shadow:0 12px 30px rgba(217,78,126,.28)}
+    .btn-ghost{background:#fff; color:var(--accent); border:1px solid #ffd2e3}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:3px}
+
+    .micro{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+      margin-top:20px; color:#5c5c64; font-size:.95rem;
+    }
+    .chip{background:#fff; border:1px solid #f6d8e5; border-radius:12px; padding:8px 12px}
+    .foot{margin-top:18px; color:#8a8a96; font-size:.9rem}
+
+    @media (max-width: 560px){
+      :root{ --vid-size: 220px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important; scroll-behavior:auto !important}
     }
   </style>
 </head>
 <body>
+  <noscript>This page uses a little JavaScript for hearts, quotes, and buttons.</noscript>
 
-  <h1>Are You Ready for the Surprise? 💌</h1>
-  <button onclick="goToMain()">Yes, Show Me!</button>
+  <div class="bg-anim" aria-hidden="true"></div>
+  <canvas id="hearts"></canvas>
 
-<script>
-  function goToMain() {
-    // Set a flag so main.html knows autoplay is allowed
-    sessionStorage.setItem('playMusic', 'true');
-    window.location.href = 'main.html';
-  }
-</script>
+  <section class="stage">
+    <div class="card" role="main" aria-labelledby="title">
+      <h1 id="title"> Welcome to the World of Swastika Ji ❤️ </h1>
+      <p class="subtitle">A doorway into memories, songs, and letters crafted just for you.</p>
+
+      <!-- Two small videos side-by-side (not big, not overlapping) -->
+      <div class="intro-videos">
+        <video autoplay muted loop playsinline preload="auto" poster="assets/photos/91.JPG">
+          <source src="assets/videos/33.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop playsinline preload="auto" poster="assets/photos/91.JPG">
+          <source src="assets/videos/17.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div id="rotator" class="rotator" aria-live="polite"></div>
+
+      <div class="buttons" role="group" aria-label="Entry options">
+        <button id="enter-sound" class="btn btn-primary">Enter with Sound ♪</button>
+        <button id="enter-quiet" class="btn btn-ghost">Enter Silently</button>
+      </div>
+
+      <div class="micro" aria-hidden="true">
+        <div class="chip">Handpicked photos</div>
+        <div class="chip">Your fav songs</div>
+        <div class="chip">Letters & notes</div>
+        <div class="chip">Reasons why i like you</div>
+      </div>
+
+      <p class="foot">Hope this makes you smileeee</p>
+    </div>
+  </section>
+
+  <script>
+    // Ensure both small videos start (muted/inline for mobile)
+    document.querySelectorAll('.intro-videos video').forEach(v=>{
+      v.muted = true; v.playsInline = true;
+      const tryPlay = () => v.play().catch(()=>{});
+      if (v.readyState >= 2) tryPlay(); else v.addEventListener('canplay', tryPlay, {once:true});
+    });
+
+    // Rotating quotes
+    const quotes = [
+      "“I saw home in your eyes.”",
+      "“If I had a flower for every time I thought of you… I could walk through my garden forever.”"
+    ];
+    const rotator = document.getElementById('rotator');
+    let qi = 0;
+    function showQuote(){
+      rotator.textContent = quotes[qi % quotes.length];
+      rotator.classList.add('is-visible');
+      setTimeout(()=>{ rotator.classList.remove('is-visible'); qi++; setTimeout(showQuote, 600); }, 3600);
+    }
+    showQuote();
+
+    // Buttons → remember music pref, then go to main.html
+    document.getElementById('enter-sound').addEventListener('click', ()=>{
+      try { sessionStorage.setItem('playMusic','true'); } catch {}
+      location.href = 'main.html';
+    });
+    document.getElementById('enter-quiet').addEventListener('click', ()=>{
+      try { sessionStorage.setItem('playMusic','false'); } catch {}
+      location.href = 'main.html';
+    });
+
+    // Floating hearts
+    const c = document.getElementById('hearts'), ctx = c.getContext('2d');
+    let W, H;
+    function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+
+    function Heart(){
+      this.x = Math.random()*W;
+      this.y = H + Math.random()*H/2;
+      this.size = 6 + Math.random()*10;
+      this.alpha = .15 + Math.random()*.35;
+      this.speed = 0.4 + Math.random()*0.9;
+      this.swing = Math.random()*1.6;
+      this.phase = Math.random()*Math.PI*2;
+      this.hue = 330 + Math.random()*30;
+    }
+    Heart.prototype.draw = function(t){
+      const sway = Math.sin(t/700 + this.phase)*this.swing;
+      this.y -= this.speed; this.x += sway;
+      if(this.y + this.size < -10){ this.y = H + 20; this.x = Math.random()*W; }
+      ctx.save(); ctx.translate(this.x, this.y); ctx.scale(this.size/14, this.size/14);
+      ctx.fillStyle = `hsla(${this.hue},75%,64%,${this.alpha})`;
+      ctx.beginPath();
+      ctx.moveTo(0,6);
+      ctx.bezierCurveTo(-12,-6,-6,-18,0,-12);
+      ctx.bezierCurveTo(6,-18,12,-6,0,6);
+      ctx.closePath(); ctx.fill(); ctx.restore();
+    };
+
+    const hearts = Array.from({length:70}, ()=>new Heart());
+    function loop(t){ ctx.clearRect(0,0,W,H); hearts.forEach(h=>h.draw(t)); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+  </script>
 </body>
 </html>
